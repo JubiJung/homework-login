@@ -2,6 +2,7 @@
 
 ![image](https://github.com/JubiJung/homework-login/assets/124552101/a3d64a5b-5199-412e-9132-f051274d04dc)
 
+---
 
 ### 마크업
 
