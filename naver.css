@@ -1,0 +1,167 @@
+:root {
+  --default-black: #181818;
+  --default-green: #03cf5d;
+  --input-border: #dadada;
+  --input-background: #fff;
+  --main-focus-outline: #24388d;
+  --input-focus-background: #e9f0fd;
+  --disabled-gray: #aaa;
+}
+
+:focus-visible {
+  outline: 1px solid var(--main-focus-outline);
+}
+
+body,
+h1,
+h2,
+fieldset,
+legend,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1rem;
+  color: var(--default-black);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--default-black);
+}
+
+.main-title {
+  margin: 9.375rem auto 6rem;
+  width: 14.375rem;
+}
+.sr-only {
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px 1px 1px 1px);
+  clip-path: inset(50%);
+}
+
+.login-section {
+  padding: 0 1.25rem;
+
+  fieldset {
+    width: 100%;
+    border: 0;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  fieldset > input {
+    padding: 0 0.625rem;
+    font-size: 0.875rem;
+    height: 2.813rem;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-background);
+  }
+
+  fieldset > input:focus-visible {
+    outline: 1px solid var(--input-focus-outline);
+    background-color: var(--input-focus-background);
+  }
+}
+
+.login-option {
+  margin-top: 0.625rem;
+  width: 100%;
+  order: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+}
+
+.keep-login {
+  overflow: visible;
+
+  label {
+    display: inline-block;
+    height: 1.563rem;
+    white-space: nowrap;
+    left: 0;
+    background-image: url(./icons/unchecked.svg);
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    padding-left: 1.813rem;
+    background-position: left center;
+  }
+
+  input {
+    margin: 0;
+    position: absolute;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  input:checked + label {
+    background-image: url(./icons/checked.svg);
+  }
+}
+
+.ip-security {
+  display: none;
+  position: relative;
+
+  label::after {
+    content: "OFF";
+    color: var(--disabled-gray);
+  }
+
+  input {
+    position: absolute;
+    right: 0;
+    appearance: none;
+    width: 1.75rem;
+    height: 1.25rem;
+  }
+
+  input:checked {
+    width: 1.25rem;
+  }
+
+  input:checked + label::after {
+    content: "ON";
+    color: var(--default-green);
+  }
+}
+
+.login-btn {
+  border: none;
+  font-size: 1rem;
+  height: 2.813rem;
+  color: var(--input-background);
+  background-color: var(--default-green);
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .login-section {
+    margin: 0 auto;
+    fieldset {
+      width: 31.25rem;
+    }
+  }
+
+  .login-option {
+    justify-content: space-between;
+  }
+
+  .ip-security {
+    display: inline-block;
+  }
+}
